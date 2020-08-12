@@ -91,6 +91,14 @@ class LinkedList
     end
     puts "nil"
   end
+
+  def insert_at(value, index)
+    node = Node.new(value)
+    current_node = at(index - 1)
+    node.next = current_node.next
+    current_node.next = node
+    size += 1
+  end
 end
 
 
@@ -108,4 +116,6 @@ puts new_list.contains?("General")
 puts new_list.find("General")
 new_list.pop
 puts new_list.size
+new_list.to_s
+new_list.insert_at("hi", 2)
 new_list.to_s
